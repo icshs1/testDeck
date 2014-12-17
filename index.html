@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test deck</title>
+  <title>Develping Data Products Course Project</title>
   <meta charset="utf-8">
-  <meta name="description" content="Test deck">
-  <meta name="author" content="">
+  <meta name="description" content="Develping Data Products Course Project">
+  <meta name="author" content="Hyunsik Shim">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -32,9 +32,9 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Test deck</h1>
-    <h2></h2>
-    <p><br/></p>
+    <h1>Develping Data Products Course Project</h1>
+    <h2>Shiny App Explanation</h2>
+    <p>Hyunsik Shim<br/></p>
   </hgroup>
   <article></article>  
 </slide>
@@ -43,14 +43,16 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Read-And-Delete</h2>
+    <h2>Welcome to mtcars database explorer</h2>
   </hgroup>
   <article data-timings="">
-    <ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
-</ol>
+    <p>This application is based on the <code>Motor Trend Car Road Tests</code> database.</p>
+
+<p>The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973~74 models).</p>
+
+<p>Source code is available on the <a href="https://github.com/icshs1/Developing_Data_Products">GitHub</a>.</p>
+
+<p>You can adjust and select date variables of mtcars on the left side and can show plot result according selected vairables ont the right side. </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -58,13 +60,164 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>mtcars dataset - Description</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">plot(1:10, 1:10)
+    <h3>Source</h3>
+
+<blockquote>
+<p>Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391~411.</p>
+</blockquote>
+
+<pre><code class="r">library(datasets)
+head(mtcars, 3)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+<pre><code>##                mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>mtcars dataset - Format</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>A data frame with 32 observations on 11 variables.</strong></p>
+
+<table><thead>
+<tr>
+<th>Index</th>
+<th>Field</th>
+<th>Detail</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>[, 1]</td>
+<td>mpg</td>
+<td>Miles/(US) gallon</td>
+</tr>
+<tr>
+<td>[, 2]</td>
+<td>cyl</td>
+<td>Number of cylinders</td>
+</tr>
+<tr>
+<td>[, 3]</td>
+<td>disp</td>
+<td>Displacement (cu.in.)</td>
+</tr>
+<tr>
+<td>[, 4]</td>
+<td>hp</td>
+<td>Gross horsepower</td>
+</tr>
+<tr>
+<td>[, 5]</td>
+<td>drat</td>
+<td>Rear axle ratio</td>
+</tr>
+<tr>
+<td>[, 6]</td>
+<td>wt</td>
+<td>Weight (lb/1000)</td>
+</tr>
+<tr>
+<td>[, 7]</td>
+<td>qsec</td>
+<td>1/4 mile time</td>
+</tr>
+<tr>
+<td>[, 8]</td>
+<td>vs</td>
+<td>V/S</td>
+</tr>
+<tr>
+<td>[, 9]</td>
+<td>am</td>
+<td>Transmission (0 = automatic, 1 = manual)</td>
+</tr>
+<tr>
+<td>[,10]</td>
+<td>gear</td>
+<td>Number of forward gears</td>
+</tr>
+<tr>
+<td>[,11]</td>
+<td>carb</td>
+<td>Number of carburetors</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Funtions of Shiny App</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>The following functions are supported.</h3>
+
+<ol>
+<li>Histogram
+
+<ul>
+<li>You can select one variable of <code>mtcars</code> and show histogram.</li>
+</ul></li>
+<li>Correlation
+
+<ul>
+<li>You can check several variable of <code>mtcars</code> and show correlations of selected variables</li>
+</ul></li>
+<li>Download
+
+<ul>
+<li>You can check several variable of <code>mtcars</code> for saving data that you want.</li>
+</ul></li>
+<li>Modeling
+
+<ul>
+<li>You can select one variable of <code>mtcars</code> for modeling of linear regression.</li>
+</ul></li>
+<li>About
+
+<ul>
+<li>You can know about this App.</li>
+</ul></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Moldeing</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Source code for linear regression modeling</h3>
+
+<pre><code class="r">  # linear model training 
+  # predictor am and selected variable (hp, dist, qsec, wt) 
+  ## fit&lt;- lm(mpg ~ x1 + am + x1 * am, mtcars) 
+  fit&lt;- reactive({ 
+    fit&lt;-lm(mpg ~ mtcars[ , predictor()] + am + mtcars[ , predictor()]* am, mtcars) 
+    return(fit) 
+  }) 
+  # predict resutl with input predict value. 
+  predict_result&lt;- reactive({ 
+    predict&lt;-c(fit()$coef[1] + predict_value() * fit()$coef[2], 
+       fit()$coef[1] + fit()$coef[3] + predict_value() * (fit()$coef[2] + fit()$coef[4])) 
+    return(predict) 
+  }) 
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -76,14 +229,32 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Read-And-Delete'>
+        data-slide=1 title='Welcome to mtcars database explorer'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='mtcars dataset - Description'>
          2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='mtcars dataset - Format'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Funtions of Shiny App'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Moldeing'>
+         5
       </a>
     </li>
   </ul>
